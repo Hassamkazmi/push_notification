@@ -1,29 +1,13 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import './App.css';
+import Timer from './Timer';
+import Notification from './Notification'
 
 function App() {
-  function showNotification(){
-    const notification = new Notification("New Notification !",{
-      body:"This is for Testing"
-    })
-  }
-  
-  useEffect(() => {
-    if(Notification.permission === 'granted'){
-      showNotification();
-    }else {
-      Notification.requestPermission().then(permission => {
-        showNotification();
-      })
-      console.log()
-    }
-  })
-
-  
   return (
     <div className="App">
-      <h2>Push Notification</h2>
-      <p>React App</p>
+      <Timer/>
+      <Notification/>
     </div>
   );
 }
